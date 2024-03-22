@@ -1,0 +1,11 @@
+
+
+<div>rate is <%= sprintf("%.4f", params.fetch("APR").to_f) %>%</div>
+<% @num = (params.fetch("pr").to_f * (params.fetch("APR").to_f / 12 / 100)) / (1 - (1 + (params.fetch("APR").to_f / 12 / 100))**(-params.fetch("year").to_f * 12)) %>
+
+
+<%whole, decimal = sprintf("%.2f", @num).split('.')%>
+<%whole_with_commas = whole.chars.to_a.reverse.each_slice(3).map(&:join).join(",").reverse %>
+  
+  <%@num1="$#{whole_with_commas}.#{decimal}"%>
+<div>Payment is <%= @num1%></div>

@@ -1,0 +1,6 @@
+<%if params.fetch("number").to_f%1==0%>
+
+<div>Square is <%=(params.fetch("number").to_i*params.fetch("number").to_i)%> </div>
+<%else%>
+<div>Square is <%=(params.fetch("number").to_f*params.fetch("number").to_f)%> </div>
+<%end%>
